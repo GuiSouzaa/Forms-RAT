@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/RAT/style.css" media="screen" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="/RAT/script.js"></script>
+
+    <title>RAT</title>
+</head>
+<body>
+    <div class="container" id="conteudo-pdf">
+        <h1>DASA - Ordem de Serviço</h1>
+
+        <form id="form-rat">
+
+            <div class="Local-Atendimento">
+                <label>Nome da Unidade</label>
+                <input type="text" id="Unidade" required>
+
+                <label>Endereço</label>
+                <input type="text" id="Endereço" required>
+
+                <label>Cidade</label>
+                <input type="text" id="Cidade" required>
+
+                <label>Estado</label>
+                <input type="text" id="Estado" required>
+
+                <label>Setor</label>
+                <input type="text" id="Setor" required>
+
+                <label>Nome do colaborador/Solicitante</label>
+                <input type="text" id="Colaborador" required>
+
+                <label>Telefone</label>
+                <input type="number" id="Telefone">
+            </div>
+
+            <div class="Dados-Equipamento">
+                <label>N° Chamado</label>
+                <input type="text" id="Chamado" required>
+
+                <label>N° Patrimonio</label>
+                <input type="text" id="Patrimonio" required>
+
+                <label>N° Serie</label>
+                <input type="number" id="Serial" required>
+
+                <label>Marca</label>
+                <input type="text" id="Marca" required>
+
+                <label>Modelo</label>
+                <input type="text" id="Modelo">
+
+                <fieldset class="checkbox-tipo-atendimento">
+                    <legend>Tipo de Atendimento</legend>
+                    
+                    <label><input type="checkbox" id="Field" name="Field"> Field</label>
+                    <label><input type="checkbox" id="Remoto" name="Remoto"> Remoto</label>
+                    <label><input type="checkbox" id="Projeto" name="Projeto"> Projeto</label>
+                </fieldset>
+                
+                <fieldset class="tipo-equipamento">
+                    <legend>Tipo de Equipamento</legend>
+                    
+                    <label><input type="checkbox" id="Notebook" name="Notebook"> Notebook</label>
+                    <label><input type="checkbox" id="Desktop" name="Desktop"> Desktop</label>
+                    <label><input type="checkbox" id="Monitor" name="Monitor"> Monitor</label>
+                </fieldset>
+            </div>
+
+            <div class="Dados-Acao-Tecnico">
+                <label>Nome do Tecnico</label>
+                <input type="text" id="Tecnico" required>
+
+                <label>Problema Relatado</label>
+                <textarea id="Problema" required></textarea>
+
+                <label>Ação Realizada</label>
+                <textarea id="Realizada" required></textarea>
+
+                <label>Assinatura Colaborador</label>
+                <canvas id="Assinatura" width="700" height="100"></canvas>
+                <button type="button" id="Limpar">Limpar</button>
+
+                
+            <label>Data</label>
+            <input type="date" id="Data"> <!-- Tentar deixar isso ser gerado automaticamente -->
+
+            <label>Hora</label>  <!-- Tentar deixar isso ser gerado automaticamente -->
+            <input type="time" id="Tempo" required>
+
+            <button type="button" id="Gerar-PDF">Gerar PDF</button>
+            </div>
+
+        </form>
+
+    </div>
+
+</body>
+</html>
