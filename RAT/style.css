@@ -146,3 +146,20 @@ h1 {
         font-size: 16px;
     }
 }
+
+
+
+@media print {
+    .page-break {
+        page-break-before: always;
+    }
+
+    body {
+        overflow: visible !important;
+    }
+
+    #conteudo-pdf {
+        height: auto !important;
+    }
+}
+

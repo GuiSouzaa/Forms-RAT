@@ -70,31 +70,46 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('Gerar-PDF').addEventListener("click", function() {
         const conteudo = document.getElementById('conteudo-pdf');
 
-        // Ajusta as opções do html2pdf para usar o conteúdo da página
         const options = {
             margin: [10, 10, 10, 10],
             filename: "RAT.pdf",
             html2canvas: { 
-                scale: 2, // Aumenta a qualidade da renderização
-                logging: true, // Habilita log para debug
+                scale: 2,
+                scrollY: 0, // Capturar o conteúdo inteiro
+                logging: true,
                 letterRendering: true,
-                willReadFrequently: true // Habilita a leitura frequente para melhorar o desempenho
+                willReadFrequently: true
             },
             jsPDF: { 
                 unit: "mm", 
                 format: "a4", 
-                orientation: "portrait",
-                autoPaging: true // Permite que o conteúdo que ultrapassar a página seja automaticamente distribuído
-            }
+                orientation: "portrait"
+            },
+            pagebreak: { mode: ['css', 'legacy'] } // conteúdo ultrapassar páginas
         };
 
-        // Gera o PDF com as configurações definidas
         html2pdf().from(conteudo).set(options).save();
     });
 
     // Assinatura e limpeza
     const { canvas, ctx } = Assinatura();
     limpar(canvas, ctx);
+});
+
+
+const canvas = document.querySelector("canvas"); // seu canvas de assinatura
+const assinaturaImg = document.createElement("img");
+assinaturaImg.src = canvas.toDataURL(); // Converte o canvas em imagem
+assinaturaImg.style.width = canvas.style.width;
+assinaturaImg.style.height = canvas.style.height;
+
+// Substitui o canvas pela imagem temporariamente
+canvas.parentNode.replaceChild(assinaturaImg, canvas);
+
+// Gera o PDF
+html2pdf().from(conteudo).set(options).save().then(() => {
+    // Depois que salvar o PDF, traz o canvas de volta
+    assinaturaImg.parentNode.replaceChild(canvas, assinaturaImg);
 });
 
 
