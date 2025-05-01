@@ -15,43 +15,51 @@
 
         <form id="form-rat">
 
+            <p class="campo-colab">Campo Colaborador</p>
+            <hr>
+
+            
+
             <div class="Local-Atendimento">
-                <label>Nome da Unidade</label>
+                <label>Nome da Unidade <span style="color: red;">*</span> </label >
                 <input type="text" id="Unidade" required>
 
-                <label>Endereço</label>
+                <label>Endereço <span style="color: red;">*</span></label>
                 <input type="text" id="Endereço" required>
 
-                <label>Cidade</label>
+                <label>Cidade <span style="color: red;">*</span></label>
                 <input type="text" id="Cidade" required>
 
-                <label>Estado</label>
+                <label>Estado <span style="color: red;">*</span></label>
                 <input type="text" id="Estado" required>
 
-                <label>Setor</label>
+                <label>Setor <span style="color: red;">*</span></label>
                 <input type="text" id="Setor" required>
 
-                <label>Nome do colaborador/Solicitante</label>
+                <label>Nome do colaborador/Solicitante <span style="color: red;">*</span></label>
                 <input type="text" id="Colaborador" required>
 
-                <label>Telefone</label>
-                <input type="number" id="Telefone">
+                <label>Telefone <span style="color: red;">*</span></label>
+                <input type="text" id="Telefone" maxlength="11">
             </div>
 
+            <p class="campo-field">Campo Técnico</p>
+            <hr>
+
             <div class="Dados-Equipamento">
-                <label>N° Chamado</label>
+                <label>N° Chamado <span style="color: red;">*</span></label>
                 <input type="text" id="Chamado" required>
 
-                <label>N° Patrimonio</label>
+                <label>N° Patrimonio <span style="color: red;">*</span></label>
                 <input type="text" id="Patrimonio" required>
 
-                <label>N° Serie</label>
+                <label>N° Serie <span style="color: red;">*</span></label>
                 <input type="number" id="Serial" required>
 
-                <label>Marca</label>
+                <label>Marca <span style="color: red;">*</span></label>
                 <input type="text" id="Marca" required>
 
-                <label>Modelo</label>
+                <label>Modelo <span style="color: red;">*</span></label>
                 <input type="text" id="Modelo">
 
                 <fieldset class="checkbox-tipo-atendimento">
@@ -72,17 +80,22 @@
             </div>
 
             <div class="Dados-Acao-Tecnico">
-                <label>Nome do Tecnico</label>
-                <input type="text" id="Tecnico" required>
+                <label for="tecnico">Nome do Técnico <span style="color: red;">*</span></label>
+                <input list="lista-tecnicos" id="tecnico" name="tecnico" required>
+                <datalist id="lista-tecnicos">
+                    <option value="Guilherme ">
+                    <option value="Fulano">
+                    <option value="Ciclano">
+                </datalist>
 
-                <label>Problema Relatado</label>
+                <label>Problema Relatado <span style="color: red;">*</span></label>
                 <textarea id="Problema" required></textarea>
 
-                <label>Ação Realizada</label>
+                <label>Ação Realizada <span style="color: red;">*</span></label>
                 <textarea id="Realizada" required></textarea>
 
-                <label>Assinatura Colaborador</label>
-                <canvas id="Assinatura" width="700" height="100"></canvas>
+                <label>Assinatura Colaborador <span style="color: red;">*</span></label>
+                <canvas id="Assinatura"></canvas>
                 <button type="button" id="Limpar">Limpar</button>
 
                 

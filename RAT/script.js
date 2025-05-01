@@ -13,9 +13,23 @@ function Assinatura() {
     const canvas = document.getElementById('Assinatura');
     // Obtém o contexto 2D do canvas, que é utilizado para desenhar
     const ctx = canvas.getContext('2d');
+
+      // === INÍCIO: Tornar o canvas responsivo ===
+      function resizeCanvas() {
+        const width = canvas.offsetWidth; // largura CSS
+        canvas.width = width;             // largura real para desenho
+        canvas.height = 100;              // altura fixa ou você pode usar: canvas.offsetHeight
+    }
+
+    // Redimensiona quando a janela é redimensionada
+    window.addEventListener('resize',resizeCanvas);
+    // Redimensiona no primeiro load
+    resizeCanvas();
     
     // Variável para controlar se o usuário está desenhando ou não
     let desenhando = false;
+
+    // Evento do mouse
 
     // Adiciona o evento 'mousedown' que dispara quando o usuário clica no canvas
     canvas.addEventListener('mousedown', (e) => {
@@ -50,8 +64,38 @@ function Assinatura() {
         desenhando = false;
     });
 
+    // Eventos touch (mobile)
+    canvas.addEventListener('touchstart', e => {
+        e.preventDefault();
+        desenhando = true;
+        const pos = getTouchPos(canvas, e);
+        ctx.beginPath();
+        ctx.moveTo(pos.x, pos.y);
+    });
+
+    canvas.addEventListener('touchmove', e => {
+        if (desenhando) {
+            const pos = getTouchPos(canvas, e);
+            ctx.lineTo(pos.x, pos.y);
+            ctx.stroke();
+        }
+    });
+
+    canvas.addEventListener('touchend', () => desenhando = false);
+        
     // Retorna o canvas e seu contexto (para serem usados fora da função Assinatura)
     return { canvas, ctx };
+}
+
+
+// Pega posição do toque
+function getTouchPos(canvas, e) {
+    const rect = canvas.getBoundingClientRect();
+    const touch = e.touches[0];
+    return {
+        x: touch.clientX - rect.left,
+        y: touch.clientY - rect.top
+    };
 }
 
 // Função para limpar o conteúdo desenhado no canvas
@@ -105,6 +149,7 @@ assinaturaImg.style.height = canvas.style.height;
 
 // Substitui o canvas pela imagem temporariamente
 canvas.parentNode.replaceChild(assinaturaImg, canvas);
+
 
 // Gera o PDF
 html2pdf().from(conteudo).set(options).save().then(() => {
