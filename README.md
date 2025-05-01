@@ -10,12 +10,12 @@ Assinatura digital usando o mouse ou touch
 
 Botão para limpar assinatura
 
-Preparação para geração de PDF (em desenvolvimento)
+Preparação para geração de PDF
 
 Interface responsiva e simples
 
 ## ✅ Requisitos
-Navegador moderno (Chrome, Firefox, Edge)
+Navegador (Chrome, Firefox, Edge, Brave)
 
 ## 🖊️ Recursos Usados
 HTML5
