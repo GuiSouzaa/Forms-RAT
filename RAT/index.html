@@ -6,10 +6,15 @@
     <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script src="script.js"></script>
+    <script type="module" src="firebase-form.js"></script>
+    <script type="module" src="compartilhar.js"></script>
+
+
 
     <title>RAT</title>
 </head>
 <body>
+
     <div class="container" id="conteudo-pdf">
         <h1>DASA - Ordem de Serviço</h1>
 
@@ -17,8 +22,6 @@
 
             <p class="campo-colab">Campo Colaborador</p>
             <hr>
-
-            
 
             <div class="Local-Atendimento">
                 <label>Nome da Unidade <span style="color: red;">*</span> </label >
@@ -105,6 +108,7 @@
             <label>Hora</label>  <!-- Tentar deixar isso ser gerado automaticamente -->
             <input type="time" id="Tempo" required>
 
+            <button type="button" id="compartilhar">Compartilhar</button>
             <button type="button" id="Gerar-PDF">Gerar PDF</button>
             </div>
 
