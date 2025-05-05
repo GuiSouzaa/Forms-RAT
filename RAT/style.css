@@ -124,6 +124,19 @@ h1 {
     transition: background-color 0.3s;
 }
 
+#compartilhar{
+    display: block;
+    margin: 10px 0;
+    padding: 8px 30px;
+    background-color: #007BFF;  
+    color: white;               
+    border: none;
+    border-radius: 5px;         
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
 .campo-colab{
     text-align: center; 
     font-weight: bold;  
@@ -154,6 +167,10 @@ hr {
     background-color: #218838;
 }
 
+#compartilhar:hover{
+    background-color: #0056b3;
+}
+
 @media (max-width: 600px) {
     body {
         padding: 20px 10px;
@@ -176,7 +193,7 @@ hr {
         font-size: 20px;
     }
 
-    #Limpar, #Gerar-PDF {
+    #Limpar, #Gerar-PDF, #compartilhar {
         width: 100%;
         padding: 12px;
         font-size: 16px;

@@ -1,3 +1,7 @@
+//Fire base V1 connection
+
+//Final V1
+
 // Espera o conteúdo HTML ser totalmente carregado antes de executar o código
 document.addEventListener("DOMContentLoaded", function() {
     // Chama a função Assinatura() e desestrutura o objeto retornado para pegar o canvas e seu contexto
@@ -156,5 +160,8 @@ html2pdf().from(conteudo).set(options).save().then(() => {
     // Depois que salvar o PDF, traz o canvas de volta
     assinaturaImg.parentNode.replaceChild(canvas, assinaturaImg);
 });
+
+
+// V1 do firebase
 
 
